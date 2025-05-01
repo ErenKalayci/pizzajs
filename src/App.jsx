@@ -1,18 +1,17 @@
 import React from 'react';
-import './App.css'; // CSS dosyasını içeri aktar
-import Header from './Header';
-import CategoryMenu from './CategoryMenu';
-import MainContent from './MainContent';
-import Footer from './Footer';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainPage from './MainPage'; 
+import OrderPage from "./OrderPage"
 
 function App() {
   return (
-    <div>
-      <Header />
-      <CategoryMenu />
-      <MainContent />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/siparis" element={<OrderPage />} />
+      </Routes>
+    </Router>
   );
 }
 

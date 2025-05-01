@@ -1,37 +1,78 @@
-.order-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    font-family: Arial, sans-serif;
+/* Sayfa sıfırdan başlasın */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   
-  .restaurant-name {
-    font-size: 24px;
-    background: #d32f2f;
+
+  /* Kırmızı bar tam ekran olsun */
+  .order-header {
+    width: 100vw;
+    background-color: #d32f2f;
     color: white;
-    padding: 20px;
+    padding: 16px 0;
     text-align: center;
+    position: relative;
+    left: 0;
+    margin: 0;
   }
   
-  .breadcrumb {
-    color: gray;
-    font-size: 14px;
-    margin: 10px 0;
-  }
-  
-  .pizza-title {
-    font-size: 28px;
-    margin: 20px 0 10px;
-  }
-  
-  .price {
+  .order-header h2 {
+    margin: 0;
     font-size: 22px;
-    color: #d32f2f;
     font-weight: bold;
   }
   
-  .desc {
+
+
+.order-container {
+    max-width: 768px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+  }
+  .order-page-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .restaurant-name {
+    background: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .breadcrumb {
+    font-size: 13px;
+    color: gray;
     margin: 10px 0 20px;
+  }
+  
+  .pizza-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .price {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .desc {
+    margin-bottom: 20px;
+    color: #444;
     line-height: 1.6;
   }
   
@@ -41,29 +82,35 @@
   
   .radio-group {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     margin-top: 10px;
+  }
+  
+  select,
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
   }
   
   .extras-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
     margin-top: 10px;
-  }
-  
-  input[type="text"],
-  select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
   }
   
   .form-summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 30px 0;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
   }
   
   .quantity-box {
@@ -73,28 +120,41 @@
   }
   
   .quantity-box button {
-    padding: 5px 10px;
+    width: 32px;
+    height: 32px;
     font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background: #eee;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
   .price-summary {
+    text-align: right;
+    font-size: 15px;
+  }
+  
+  .price-summary strong {
+    color: red;
     font-size: 16px;
   }
   
   .submit-button {
     width: 100%;
-    background: #fdc913;
-    color: #292929;
+    padding: 16px;
+    background-color: #fdc913;
+    color: black;
     font-weight: bold;
-    padding: 15px;
     border: none;
     border-radius: 10px;
     font-size: 18px;
+    margin-top: 20px;
     cursor: pointer;
   }
   
   .submit-button:hover {
-    background: darkred;
+    background-color: darkred;
     color: white;
   }
   

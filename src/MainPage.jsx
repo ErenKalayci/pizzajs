@@ -10,7 +10,6 @@ function MainPage() {
       <Header />
       <CategoryMenu />
       <MainContent />
-     
     </div>
   );
 }

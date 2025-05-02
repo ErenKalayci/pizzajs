@@ -1,4 +1,4 @@
-/* Global Reset ve Genel Ayarlar */
+/* Global Reset */
 *,
 *::before,
 *::after {
@@ -14,7 +14,7 @@ html, body {
   font-family: 'Arial', sans-serif;
 }
 
-/* Kırmızı Üst Bar */
+/* KırmızıBar */
 .order-header {
   background-color: #ce2829;
   color: white;
@@ -59,7 +59,6 @@ html, body {
   border-radius: 12px;
 }
 
-/* Breadcrumb */
 .breadcrumb {
   font-size: 13px;
   color: gray;
@@ -138,7 +137,7 @@ textarea {
   margin-top: 15px;
 }
 
-/* Her malzeme kutusu */
+/*malzeme kutusu */
 .extra-item {
   position: relative;
   padding: 12px 10px;
@@ -157,7 +156,7 @@ textarea {
   height: 44px;
 }
 
-/* Seçili olanlara özel stiller */
+/* Seçili olanlara özel */
 .extra-item.selected {
   background-color: #fdc913;
   border-color: #fdc913;
@@ -172,10 +171,10 @@ textarea {
 }
 
 .check-icon {
-  display: none; /* Gerek yok, iptal edilir */
+  display: none;
 }
 
-/* Boyut + Hamur Yan Yana */
+/* Boyut + Hamur*/
 .form-row {
   display: flex;
   justify-content: space-between;
@@ -192,10 +191,10 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 40px; /* biraz daha boşluk */
+  margin-top: 40px; 
   gap: 24px;
   flex-wrap: wrap;
-  padding: 0 4px; /* sol-sağ hizalama için ufak iç boşluk */
+  padding: 0 4px; 
 }
 
 .order-total-box {
@@ -294,5 +293,5 @@ textarea {
   font-size: 16px;
   font-weight: bold;
 }
-/* Form-summary gap ayarı */
+
 

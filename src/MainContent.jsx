@@ -1,7 +1,15 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 function MainContent() {
+
+  const navigate = useNavigate();
+
+  const handleOrderClick = () => {
+    navigate("/siparis");
+  };
+
   return (
+    
     <main style={{ backgroundColor: "#FAF7F2" }}>
       <div className="main-background">
         <div className="left-image-container">
@@ -9,7 +17,7 @@ function MainContent() {
           <div className="text-and-button">
             <p>Özel<br/>Lezzetus</p>
             <p style={{ fontSize: "medium" }}>Position:Absolute Acı Burger</p>
-            <button>SİPARİŞ VER</button>
+            <button onClick={handleOrderClick}>SİPARİŞ VER</button>
           </div>
         </div>
         <div className="right-image-container">
@@ -17,14 +25,14 @@ function MainContent() {
             <img src="images/iteration-2-images/cta/kart-2.png" alt="Right Image 1" />
             <div className="text-and-button">
               <p style={{ fontSize: "30px" }}>Hackathlon<br/>Burger Menü</p>
-              <button>SİPARİŞ VER</button>
+              <button onClick={handleOrderClick}>SİPARİŞ VER</button>
             </div>
           </div>
           <div className="right-image">
             <img src="images/iteration-2-images/cta/kart-3.png" alt="Right Image 2" />
             <div className="text-and-button">
               <p style={{ fontSize: "30px" }}><span className="right-span" style={{ color: "red" }}>Çoooook</span> hızlı<br/>npm gibi kurye</p>
-              <button>SİPARİŞ VER</button>
+              <button onClick={handleOrderClick}>SİPARİŞ VER</button>
             </div>
           </div>
         </div>

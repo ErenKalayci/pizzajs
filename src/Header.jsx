@@ -1,6 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; 
+
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/siparis"); 
+  };
+
+
   return (
     <header>
       <div className="header-div">
@@ -9,7 +18,7 @@ function Header() {
         <p className="font-p2">
           KOD ACIKTIRIR <br /> PIZZA,DOYURUR
         </p>
-        <button>ACIKTIM</button>
+        <button onClick={handleClick}>ACIKTIM</button>
       </div>
     </header>
   );

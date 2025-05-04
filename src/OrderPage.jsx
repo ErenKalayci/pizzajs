@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const extras = [
-  'Pepperoni', 'Sosis', 'Kavurma-Jambon', 'Tavuk Izgara', 'Soğan', 'Domates',
+  'Pepperoni', 'Sosis',"Kanada Jambonu" , 'Tavuk Izgara', 'Soğan', 'Domates',
   'Mısır', 'Sucuk', 'Jalepeno', 'Sarımsak', 'Biber', 'Ananas', 'Kabak'
 ];
 
-function OrderPage() {
+export default function OrderPage() {
   const navigate = useNavigate();
 
   // State'ler
@@ -17,6 +17,7 @@ function OrderPage() {
   const [selectedExtras, setSelectedExtras] = useState([]);
   const [note, setNote] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [formError, setFormError] = useState('');
 
   // Fiyat hesaplama
   const basePrice = 85.5;
@@ -44,7 +45,7 @@ function OrderPage() {
       alert("Lütfen tüm gerekli alanları doldurun ve en az 4 malzeme seçin.");
       return;
     }
-
+    setFormError(''); // Hata yoksa temizle
     const payload = {
       boyut: size,
       hamur: dough,
@@ -71,42 +72,59 @@ function OrderPage() {
   return (
     <div className="order-page-wrapper">
       <div className="order-header">
-        <h2>Teknolojik Yemekler</h2>
+        <img src="/images/iteration-1-images/logo.svg" alt="Logo" className="logo-img" />
       </div>
 
       <img
-        src="images\\iteration-2-images\\pictures\\form-banner.png"
+        src="images/iteration-2-images/pictures/form-banner.png"
         alt="Pizza"
         className="pizza-banner"
       />
 
       <div className="order-container">
-        <p className="breadcrumb">Anasayfa &gt; Sipariş Oluştur</p>
-        <h1 className="pizza-title">Position Absolute Acı Pizza</h1>
-        <p className="price">85.50₺</p>
-        <p className="desc">
-          Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre.
-          Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra
-          geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak,
-          düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir.
-          Küçük bir pizzaya bazen pizzetta denir.
-        </p>
+        <div className="pizza-info-header">
+          <p className="breadcrumb">
+            Anasayfa - Seçenekler - <span>Sipariş Oluştur</span>
+          </p>
+
+          <h1 className="pizza-title">Position Absolute Acı Pizza</h1>
+
+          <div className="price-row">
+            <span className="price">85.50₺</span>
+            <div className="rating-group">
+              <span className="rating">4.9</span>
+              <span className="reviews">(200)</span>
+            </div>
+          </div>
+        </div>
+
+        {formError && (
+          <p className="form-error-message">{formError}</p>
+        )}
 
         <form className="order-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
-              <label>Boyut Seç *</label>
-              <div className="radio-group">
-                <label><input type="radio" name="size" value="Küçük" onChange={() => setSize('Küçük')} /> Küçük</label>
-                <label><input type="radio" name="size" value="Orta" onChange={() => setSize('Orta')} /> Orta</label>
-                <label><input type="radio" name="size" value="Büyük" onChange={() => setSize('Büyük')} /> Büyük</label>
+              <label>Boyut Seç <span className="required">*</span></label>
+              <div className="size-options">
+                {['Küçük', 'Orta', 'Büyük'].map((val, idx) => (
+                  <label key={idx} className={`size-circle ${size === val ? 'selected' : ''}`}>
+                    <input
+                      type="radio"
+                      name="size"
+                      value={val}
+                      onChange={() => setSize(val)}
+                    />
+                    {val === 'Küçük' ? 'S' : val === 'Orta' ? 'M' : 'L'}
+                  </label>
+                ))}
               </div>
             </div>
 
             <div className="form-group">
               <label>Hamur Seç *</label>
               <select onChange={(e) => setDough(e.target.value)} defaultValue="">
-                <option value="" disabled>Hamur Kalınlığı</option>
+                <option value="" disabled>-- Hamur Kalınlığı Seç --</option>
                 <option value="İnce">İnce</option>
                 <option value="Orta">Orta</option>
                 <option value="Kalın">Kalın</option>
@@ -161,11 +179,7 @@ function OrderPage() {
                 <p><span>Boyut Farkı</span> <span>{sizePrice}₺</span></p>
                 <p className="total"><span>Toplam</span> <span>{total.toFixed(2)}₺</span></p>
               </div>
-              <button
-                className="submit-button"
-                type="submit"
-                disabled={!size || !dough || selectedExtras.length < 4}
-              >
+              <button className="submit-button" type="submit">
                 SİPARİŞ VER
               </button>
             </div>

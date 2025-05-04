@@ -1,73 +1,125 @@
-.confirmation-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: #CE2829;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  z-index: 9999;
-  padding: 20px;
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
   box-sizing: border-box;
 }
 
-.confirmation-container h2 {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+.confirmation-container {
+  background-color: #ce2829;
+  color: white;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  width: 100vw;
 }
 
-.confirmation-container h1 {
-  font-size: 2.5rem;
+/* Logo görseli */
+.brand-logo {
+  width: 260px;
+  margin: 0 auto 8px;
+  display: block;
+}
+
+/* Slogan */
+.slogan {
+  color: #fdc913;
+  font-style: italic;
+  font-family: 'Satisfy', cursive;
+  font-size: 30px;
+  margin: 66px 0 12px;
+}
+
+/* Başlık */
+.main-title {
+  font-size: 44px;
+  font-family: 'Quattrocento', serif;
+  font-weight: 400;
   margin: 0;
+  letter-spacing: 1px;
 }
 
-.confirmation-container p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
+/* Ayraç */
+hr {
+  margin: 50px auto;
+  width: 80%;
+  border: 1px solid white;
 }
 
-/* Sipariş Özeti */
-.order-summary {
-  background-color: white;
-  color: #222;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
-  text-align: left;
-  max-width: 400px;
-  width: 100%;
+/* Pizza ismi */
+.pizza-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 54px auto 54px;
+  text-align: center;
+  color: white;
+  
+}
+
+/* Sipariş detayları */
+.order-details {
   font-size: 14px;
+  line-height: 1.7;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  text-align: left;
+  color: white;
+  
 }
 
-.order-summary h3 {
+.order-details strong {
+  color: white;
+}
+
+/* Toplam kutusu */
+.total-box {
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 8px;
+  width: fit-content;
+  margin: 0 auto 30px;
+  font-size: 14px;
+  text-align: left;
+  color: white;
+  margin-bottom: 30px; 
+}
+
+.total-box h4 {
   margin-top: 0;
   font-size: 16px;
-  color: #ce2829;
-  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.total-box p {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.total-box span:last-child {
+  font-weight: bold;
 }
 
 /* Buton */
-.confirmation-container button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  font-weight: bold;
+button {
+  padding: 12px 28px;
   font-size: 14px;
   background-color: #fdc913;
-  color: #000;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s;
 }
 
-.confirmation-container button:hover {
+button:hover {
   background-color: white;
   color: #ce2829;
 }
